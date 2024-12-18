@@ -174,6 +174,8 @@ public partial class AppDbContext : DbContext
 
         #endregion
 
+        #region TblPlayer
+
         modelBuilder.Entity<TblPlayer>(entity =>
         {
             entity.HasKey(e => e.PlayerId).HasName("PK__Tbl_Play__4A4E74A8CDE9AC8A");
@@ -188,6 +190,8 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Email).HasMaxLength(255);
             entity.Property(e => e.PlayerName).HasMaxLength(100);
         });
+
+        #endregion
 
         OnModelCreatingPartial(modelBuilder);
     }
