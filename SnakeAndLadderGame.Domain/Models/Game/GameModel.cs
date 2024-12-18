@@ -1,5 +1,7 @@
 ﻿namespace SnakeAndLadderGame.Domain.Models.Game;
 
+#region GameModel
+
 public class GameModel
 {
     public string GameId { get; set; } = null!;
@@ -12,3 +14,5 @@ public class GameModel
 
     public DateTime? EndDate { get; set; }
 }
+
+#endregion
