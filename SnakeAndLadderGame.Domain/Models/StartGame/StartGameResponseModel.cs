@@ -1,6 +1,4 @@
-﻿using SnakeAndLadderGame.Domain.Models.Player;
-
-namespace SnakeAndLadderGame.Domain.Models.StartGame;
+﻿namespace SnakeAndLadderGame.Domain.Models.StartGame;
 
 #region StartGameResponseModel
 
