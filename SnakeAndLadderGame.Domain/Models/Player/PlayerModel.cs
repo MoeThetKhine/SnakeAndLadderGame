@@ -1,11 +1,10 @@
-﻿namespace SnakeAndLadderGame.Domain.Models.Player
+﻿namespace SnakeAndLadderGame.Domain.Models.Player;
+
+public class PlayerModel
 {
-    public class PlayerModel
-    {
-        public string PlayerId { get; set; } = null!;
+    public string PlayerId { get; set; } = null!;
 
-        public string PlayerName { get; set; } = null!;
+    public string PlayerName { get; set; } = null!;
 
-        public string Email { get; set; } = null!;
-    }
+    public string Email { get; set; } = null!;
 }
