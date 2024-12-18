@@ -1,5 +1,7 @@
 ﻿namespace SnakeandLadderGame.Database.Models;
 
+#region TblCell
+
 public partial class TblCell
 {
     public string CellId { get; set; } = null!;
@@ -14,3 +16,5 @@ public partial class TblCell
 
     public virtual TblBoard Board { get; set; } = null!;
 }
+
+#endregion
