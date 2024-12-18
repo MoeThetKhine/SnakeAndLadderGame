@@ -1,5 +1,7 @@
 ﻿namespace SnakeAndLadderGame.Domain.Models;
 
+#region Result
+
 public class Result<T>
 {
     public bool IsSuccess { get; set; }
@@ -69,3 +71,5 @@ public class Result<T>
 
     #endregion
 }
+
+#endregion
