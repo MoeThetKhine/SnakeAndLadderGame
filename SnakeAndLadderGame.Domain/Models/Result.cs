@@ -10,6 +10,8 @@ public class Result<T>
     public T Data { get; set; }
     public string Message {  get; set; }
 
+    #region Success
+
     public static Result<T> Success (T data, string message = "Success")
     {
         return new Result<T>()
@@ -20,6 +22,10 @@ public class Result<T>
             Message = message
         };
     }
+
+    #endregion
+
+
     public static Result<T> DeleteSuccess(string message = "Deleting Successful.")
     {
         return new Result<T>()
