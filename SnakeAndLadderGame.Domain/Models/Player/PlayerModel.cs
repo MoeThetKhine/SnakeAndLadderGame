@@ -1,5 +1,7 @@
 ﻿namespace SnakeAndLadderGame.Domain.Models.Player;
 
+#region PlayerModel
+
 public class PlayerModel
 {
     public string PlayerId { get; set; } = null!;
@@ -8,3 +10,5 @@ public class PlayerModel
 
     public string Email { get; set; } = null!;
 }
+
+#endregion
