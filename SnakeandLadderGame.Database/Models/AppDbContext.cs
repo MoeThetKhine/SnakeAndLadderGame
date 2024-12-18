@@ -81,6 +81,8 @@ public partial class AppDbContext : DbContext
 
         #endregion
 
+        #region TblGame
+
         modelBuilder.Entity<TblGame>(entity =>
         {
             entity.HasKey(e => e.GameId).HasName("PK__Tbl_Game__2AB897DD55A7EDAC");
@@ -104,6 +106,8 @@ public partial class AppDbContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Tbl_Games__Board__4222D4EF");
         });
+
+        #endregion
 
         modelBuilder.Entity<TblGamePlayer>(entity =>
         {
