@@ -1,8 +1,7 @@
-﻿namespace SnakeAndLadderGame.Domain.Models.PlayGame
+﻿namespace SnakeAndLadderGame.Domain.Models.PlayGame;
+
+public class PlayGameRequestModel
 {
-    public class PlayGameRequestModel
-    {
-        public string GameID { get; set; }
-        public string PlayerID { get; set; }
-    }
+    public string GameID { get; set; }
+    public string PlayerID { get; set; }
 }
