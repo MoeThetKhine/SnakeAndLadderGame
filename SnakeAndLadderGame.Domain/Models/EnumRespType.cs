@@ -1,10 +1,9 @@
-﻿namespace SnakeAndLadderGame.Domain.Models
+﻿namespace SnakeAndLadderGame.Domain.Models;
+
+public enum EnumRespType
 {
-    public enum EnumRespType
-    {
-        None,
-        Success,
-        ValidationError,
-        SystemError
-    }
+    None,
+    Success,
+    ValidationError,
+    SystemError
 }
