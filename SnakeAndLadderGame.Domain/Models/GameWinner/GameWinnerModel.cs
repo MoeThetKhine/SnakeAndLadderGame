@@ -1,5 +1,7 @@
 ﻿namespace SnakeAndLadderGame.Domain.Models.GameWinner;
 
+#region GameWinnerModel
+
 public class GameWinnerModel
 {
     public string GameWinnerId { get; set; } = null!;
@@ -9,5 +11,6 @@ public class GameWinnerModel
     public string PlayerId { get; set; } = null!;
 
     public int Rank { get; set; }
-
 }
+
+#endregion
