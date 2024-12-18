@@ -37,8 +37,11 @@ public partial class AppDbContext : DbContext
 
     #endregion
 
+    #region OnModelCreating
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+
         modelBuilder.Entity<TblBoard>(entity =>
         {
             entity.HasKey(e => e.BoardId).HasName("PK__Tbl_Boar__F9646BD2DAFE5E71");
@@ -168,6 +171,8 @@ public partial class AppDbContext : DbContext
 
         OnModelCreatingPartial(modelBuilder);
     }
+
+    #endregion
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
