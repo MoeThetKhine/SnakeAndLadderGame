@@ -42,6 +42,8 @@ public partial class AppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
 
+        #region TblBoard
+
         modelBuilder.Entity<TblBoard>(entity =>
         {
             entity.HasKey(e => e.BoardId).HasName("PK__Tbl_Boar__F9646BD2DAFE5E71");
@@ -52,6 +54,8 @@ public partial class AppDbContext : DbContext
                 .HasMaxLength(250)
                 .HasColumnName("BoardID");
         });
+
+        #endregion
 
         modelBuilder.Entity<TblCell>(entity =>
         {
