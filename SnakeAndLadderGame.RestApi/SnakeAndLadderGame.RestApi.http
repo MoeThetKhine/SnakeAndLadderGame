@@ -1,0 +1,6 @@
+@SnakeAndLadderGame.RestApi_HostAddress = http://localhost:5034
+
+GET {{SnakeAndLadderGame.RestApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
