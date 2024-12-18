@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace SnakeandLadderGame.Database.Models;
+﻿namespace SnakeandLadderGame.Database.Models;
 
 public partial class TblGameWinner
 {
