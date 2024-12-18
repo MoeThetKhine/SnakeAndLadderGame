@@ -25,6 +25,7 @@ public class Result<T>
 
     #endregion
 
+    #region Success
 
     public static Result<T> DeleteSuccess(string message = "Deleting Successful.")
     {
@@ -35,6 +36,10 @@ public class Result<T>
             Message = message
         };
     }
+
+    #endregion
+
+
     public static Result<T> ValidationError(string message, T? data = default)
     {
         return new Result<T>()
