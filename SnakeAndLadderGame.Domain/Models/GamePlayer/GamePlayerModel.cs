@@ -1,5 +1,7 @@
 ﻿namespace SnakeAndLadderGame.Domain.Models.GamePlayer;
 
+#region GamePlayerModel
+
 public class GamePlayerModel
 {
     public string GamePlayerId { get; set; } = null!;
@@ -14,3 +16,5 @@ public class GamePlayerModel
 
     public string? PlayerStatus { get; set; }
 }
+
+#endregion
