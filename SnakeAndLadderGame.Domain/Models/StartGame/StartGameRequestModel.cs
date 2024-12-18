@@ -1,8 +1,7 @@
-﻿namespace SnakeAndLadderGame.Domain.Models.StartGame
+﻿namespace SnakeAndLadderGame.Domain.Models.StartGame;
+
+public class StartGameRequestModel
 {
-    public class StartGameRequestModel
-    {
-        public string BoardID { get; set; }
-        public List<string> PlayerIDs { get; set; }
-    }
+    public string BoardID { get; set; }
+    public List<string> PlayerIDs { get; set; }
 }
