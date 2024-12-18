@@ -1,9 +1,8 @@
-﻿namespace SnakeAndLadderGame.Domain.Models.Player
+﻿namespace SnakeAndLadderGame.Domain.Models.Player;
+
+public class PlayerDetailModel
 {
-    public class PlayerDetailModel
-    {
-        public string PlayerID { get; set; }
-        public string Color { get; set; }
-        public int CurrentPosition { get; set; }
-    }
+    public string PlayerID { get; set; }
+    public string Color { get; set; }
+    public int CurrentPosition { get; set; }
 }
