@@ -1,11 +1,4 @@
-﻿using SnakeandLadderGame.Database.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SnakeAndLadderGame.Domain.Models.GameWinner
+﻿namespace SnakeAndLadderGame.Domain.Models.GameWinner
 {
     public class GameWinnerModel
     {
