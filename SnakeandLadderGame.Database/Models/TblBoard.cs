@@ -1,5 +1,7 @@
 ﻿namespace SnakeandLadderGame.Database.Models;
 
+#region TblBoard
+
 public partial class TblBoard
 {
     public string BoardId { get; set; } = null!;
@@ -10,3 +12,5 @@ public partial class TblBoard
 
     public virtual ICollection<TblGame> TblGames { get; set; } = new List<TblGame>();
 }
+
+#endregion
