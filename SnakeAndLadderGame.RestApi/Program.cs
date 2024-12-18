@@ -9,6 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+#region  DI
 
 builder.Services.AddDbContext<AppDbContext>(opt =>
 {
@@ -16,6 +17,8 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 }, ServiceLifetime.Transient, ServiceLifetime.Transient);
 
 builder.Services.AddScoped<GameService>();
+
+#endregion
 
 var app = builder.Build();
 
