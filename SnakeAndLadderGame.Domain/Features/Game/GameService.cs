@@ -1,6 +1,5 @@
-﻿namespace SnakeAndLadderGame.Domain.Features.Game
+﻿namespace SnakeAndLadderGame.Domain.Features.Game;
+
+public class GameService
 {
-    public class GameService
-    {
-    }
 }
