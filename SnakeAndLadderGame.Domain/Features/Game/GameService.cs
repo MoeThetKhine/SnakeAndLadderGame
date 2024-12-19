@@ -131,8 +131,9 @@ public class GameService
             var diceRoll = new Random().Next(1, 7);
             var newPosition = gamePlayer.CurrentPosition + diceRoll;
 
-            var board = await _context.TblBoards.FirstOrDefaultAsync(b => b.BoardId == game.BoardId);
-            if (board == null)
+            var board = await _context.TblBoards.FirstOrDefaultAsync(x => x.BoardId == game.BoardId);
+
+            if (board is null)
             {
                 return Result<PlayGameResponseModel>.SystemError("Board does not exist.");
             }
@@ -144,7 +145,7 @@ public class GameService
                 newPosition = board.Size;
                 gamePlayer.PlayerStatus = "Won";
 
-                var winnerRank = await _context.TblGameWinners.CountAsync(w => w.GameId == request.GameID) + 1;
+                var winnerRank = await _context.TblGameWinners.CountAsync(x => x.GameId == request.GameID) + 1;
                 await _context.TblGameWinners.AddAsync(new TblGameWinner
                 {
                     GameWinnerId = Guid.NewGuid().ToString(),
@@ -158,7 +159,7 @@ public class GameService
                 cell = await _context.TblCells
                     .FirstOrDefaultAsync(c => c.BoardId == game.BoardId && c.CellNo == newPosition);
 
-                if (cell != null)
+                if (cell is not null)
                 {
                     if (cell.CellType == "Snake")
                     {
