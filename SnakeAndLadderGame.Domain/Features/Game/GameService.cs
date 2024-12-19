@@ -67,6 +67,8 @@ public class GameService
 
             #endregion
 
+            #region Create Game
+
             var response = new StartGameResponseModel
             {
                 GameID = newGame.GameId,
@@ -78,6 +80,8 @@ public class GameService
                     CurrentPosition = 1
                 }).ToList()
             };
+
+            #endregion
 
             return Result<StartGameResponseModel>.Success(response, "Game started successfully.");
         }
