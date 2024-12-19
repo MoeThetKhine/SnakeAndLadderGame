@@ -14,6 +14,9 @@ public class GameService
     {
         _context = context;
     }
+
+    #region StartGameAsync
+
     public async Task<Result<StartGameResponseModel>> StartGameAsync(StartGameRequestModel request)
     {
         try
@@ -71,6 +74,8 @@ public class GameService
             return Result<StartGameResponseModel>.SystemError("An error occurred while starting the game: " + ex.Message);
         }
     }
+
+    #endregion
 
     public async Task<Result<PlayGameResponseModel>> PlayGameAsync(PlayGameRequestModel request)
     {
