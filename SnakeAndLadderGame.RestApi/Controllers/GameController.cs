@@ -37,6 +37,8 @@ public class GameController : ControllerBase
 
     #endregion
 
+    #region PlayGame
+
     [HttpPost("play")]
     public async Task<IActionResult> PlayGame([FromBody] PlayGameRequestModel request)
     {
@@ -54,4 +56,7 @@ public class GameController : ControllerBase
             return StatusCode(500, result);
         }
     }
+
+    #endregion
+
 }
