@@ -99,18 +99,22 @@ public class GameService
     {
         try
         {
+            #region Game Exist or Not
+
             var game = await _context.TblGames
                 .FirstOrDefaultAsync(g => g.GameId == request.GameID && g.GameStatus == "InProgress");
 
-            if (game == null)
+            if (game is null)
             {
                 return Result<PlayGameResponseModel>.ValidationError("Invalid game ID or the game is not in progress.");
             }
 
+            #endregion
+
             var gamePlayer = await _context.TblGamePlayers
                 .FirstOrDefaultAsync(gp => gp.GameId == request.GameID && gp.PlayerId == request.PlayerID);
 
-            if (gamePlayer == null)
+            if (gamePlayer is null)
             {
                 return Result<PlayGameResponseModel>.ValidationError("Player is not part of this game.");
             }
