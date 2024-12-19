@@ -111,6 +111,8 @@ public class GameService
 
             #endregion
 
+            #region Player Exist Or Not
+
             var gamePlayer = await _context.TblGamePlayers
                 .FirstOrDefaultAsync(gp => gp.GameId == request.GameID && gp.PlayerId == request.PlayerID);
 
@@ -118,6 +120,8 @@ public class GameService
             {
                 return Result<PlayGameResponseModel>.ValidationError("Player is not part of this game.");
             }
+
+            #endregion
 
             if (gamePlayer.PlayerStatus == "Won")
             {
