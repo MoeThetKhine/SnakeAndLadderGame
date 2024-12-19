@@ -40,8 +40,12 @@ public class GameService
 
             #endregion
 
+            #region Generate Color
+
             var colors = new List<string> { "Yellow", "Green", "Red", "Blue" };
             var shuffledColors = colors.OrderBy(x => Guid.NewGuid()).Take(request.PlayerIDs.Count()).ToList();
+
+            #endregion
 
             for (int i = 0; i < request. PlayerIDs.Count; i++)
             {
