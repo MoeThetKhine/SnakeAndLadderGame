@@ -8,11 +8,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{81B35253-746
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnakeandLadderGame.Database", "SnakeandLadderGame.Database\SnakeandLadderGame.Database.csproj", "{B12A4BEC-DA6E-47B7-85C4-C75146D3078F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnakeandLadderGame.Database", "SnakeandLadderGame.Database\SnakeandLadderGame.Database.csproj", "{B12A4BEC-DA6E-47B7-85C4-C75146D3078F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnakeAndLadderGame.Domain", "SnakeAndLadderGame.Domain\SnakeAndLadderGame.Domain.csproj", "{7EBB2E0A-63E8-4BC4-B442-7EA0E964020F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnakeAndLadderGame.Domain", "SnakeAndLadderGame.Domain\SnakeAndLadderGame.Domain.csproj", "{7EBB2E0A-63E8-4BC4-B442-7EA0E964020F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnakeAndLadderGame.RestApi", "SnakeAndLadderGame.RestApi\SnakeAndLadderGame.RestApi.csproj", "{7237CC62-8FE8-4A86-87C0-71998C701135}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnakeAndLadderGame.RestApi", "SnakeAndLadderGame.RestApi\SnakeAndLadderGame.RestApi.csproj", "{7237CC62-8FE8-4A86-87C0-71998C701135}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Script", "Script", "{D71DE2BA-1B59-43C6-91B7-193B3C1AD3FB}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\User\Desktop\snakesript.sql = C:\Users\User\Desktop\snakesript.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
