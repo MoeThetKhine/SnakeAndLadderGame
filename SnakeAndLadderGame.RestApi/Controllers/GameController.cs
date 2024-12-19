@@ -33,5 +33,21 @@ public class GameController : ControllerBase
         }
     }
 
-   
+    [HttpPost("play")]
+    public async Task<IActionResult> PlayGame([FromBody] PlayGameRequestModel request)
+    {
+        var result = await _gameService.PlayGameAsync(request);
+        if (result.IsSuccess)
+        {
+            return Ok(result);
+        }
+        else if (result.IsValidationError)
+        {
+            return BadRequest(result);
+        }
+        else
+        {
+            return StatusCode(500, result);
+        }
+    }
 }
