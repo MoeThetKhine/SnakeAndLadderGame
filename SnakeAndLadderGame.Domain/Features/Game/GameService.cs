@@ -27,6 +27,8 @@ public class GameService
                 return Result<StartGameResponseModel>.ValidationError("Invalid board ID.");
             }
 
+            #region Add New Game
+
             var newGame = new TblGame
             {
                 GameId = Guid.NewGuid().ToString(),
@@ -35,6 +37,8 @@ public class GameService
             };
 
             await _context.TblGames.AddAsync(newGame);
+
+            #endregion
 
             var colors = new List<string> { "Yellow", "Green", "Red", "Blue" };
             var shuffledColors = colors.OrderBy(x => Guid.NewGuid()).Take(request.PlayerIDs.Count()).ToList();
