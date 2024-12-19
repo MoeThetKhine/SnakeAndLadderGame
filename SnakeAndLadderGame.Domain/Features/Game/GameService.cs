@@ -47,6 +47,8 @@ public class GameService
 
             #endregion
 
+            #region Create Game
+
             for (int i = 0; i < request. PlayerIDs.Count; i++)
             {
                 var gamePlayer = new TblGamePlayer
@@ -62,6 +64,8 @@ public class GameService
             }
 
             await _context.SaveChangesAsync();
+
+            #endregion
 
             var response = new StartGameResponseModel
             {
