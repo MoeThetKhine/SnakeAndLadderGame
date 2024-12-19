@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace SnakeandLadderGame.Database.Models;
+﻿namespace SnakeandLadderGame.Database.Models;
 
 public partial class AppDbContext : DbContext
 {
