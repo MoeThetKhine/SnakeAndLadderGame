@@ -77,6 +77,8 @@ public class GameService
 
     #endregion
 
+    #region PlayGameAsync
+
     public async Task<Result<PlayGameResponseModel>> PlayGameAsync(PlayGameRequestModel request)
     {
         try
@@ -195,6 +197,8 @@ public class GameService
             return Result<PlayGameResponseModel>.SystemError("An error occurred while processing the move: " + ex.Message);
         }
     }
+
+    #endregion
 
 
 }
