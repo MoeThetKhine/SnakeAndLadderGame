@@ -71,6 +71,125 @@ public class GameService
             return Result<StartGameResponseModel>.SystemError("An error occurred while starting the game: " + ex.Message);
         }
     }
-   
+
+    public async Task<Result<PlayGameResponseModel>> PlayGameAsync(PlayGameRequestModel request)
+    {
+        try
+        {
+            var game = await _context.TblGames
+                .FirstOrDefaultAsync(g => g.GameId == request.GameID && g.GameStatus == "InProgress");
+
+            if (game == null)
+            {
+                return Result<PlayGameResponseModel>.ValidationError("Invalid game ID or the game is not in progress.");
+            }
+
+            var gamePlayer = await _context.TblGamePlayers
+                .FirstOrDefaultAsync(gp => gp.GameId == request.GameID && gp.PlayerId == request.PlayerID);
+
+            if (gamePlayer == null)
+            {
+                return Result<PlayGameResponseModel>.ValidationError("Player is not part of this game.");
+            }
+
+            if (gamePlayer.PlayerStatus == "Won")
+            {
+                return Result<PlayGameResponseModel>.ValidationError("This player has already won.");
+            }
+
+            var diceRoll = new Random().Next(1, 7);
+            var newPosition = gamePlayer.CurrentPosition + diceRoll;
+
+            var board = await _context.TblBoards.FirstOrDefaultAsync(b => b.BoardId == game.BoardId);
+            if (board == null)
+            {
+                return Result<PlayGameResponseModel>.SystemError("Board does not exist.");
+            }
+
+            TblCell? cell = null; 
+
+            if (newPosition >= board.Size)
+            {
+                newPosition = board.Size;
+                gamePlayer.PlayerStatus = "Won";
+
+                var winnerRank = await _context.TblGameWinners.CountAsync(w => w.GameId == request.GameID) + 1;
+                await _context.TblGameWinners.AddAsync(new TblGameWinner
+                {
+                    GameWinnerId = Guid.NewGuid().ToString(),
+                    GameId = request.GameID,
+                    PlayerId = request.PlayerID,
+                    Rank = winnerRank
+                });
+            }
+            else
+            {
+                cell = await _context.TblCells
+                    .FirstOrDefaultAsync(c => c.BoardId == game.BoardId && c.CellNo == newPosition);
+
+                if (cell != null)
+                {
+                    if (cell.CellType == "Snake")
+                    {
+                        newPosition = cell.DestinationCell!.Value;
+                    }
+                    else if (cell.CellType == "Ladder")
+                    {
+                        newPosition = cell.DestinationCell!.Value;
+                    }
+                }
+            }
+
+            var previousPosition = gamePlayer.CurrentPosition;
+            gamePlayer.CurrentPosition = newPosition;
+
+            await _context.SaveChangesAsync();
+
+            var totalPlayers = await _context.TblGamePlayers.CountAsync(gp => gp.GameId == request.GameID);
+            var winners = await _context.TblGameWinners.CountAsync(w => w.GameId == request.GameID);
+
+            if (winners == totalPlayers - 1)
+            {
+                game.GameStatus = "Completed";
+                await _context.SaveChangesAsync();
+            }
+
+            string responseMessage;
+            if (gamePlayer.PlayerStatus == "Won")
+            {
+                responseMessage = "Congratulations! You won the game!";
+            }
+            else if (previousPosition < newPosition && cell != null && cell.CellType == "Ladder")
+            {
+                responseMessage = "You climbed a ladder!";
+            }
+            else if (previousPosition > newPosition && cell != null && cell.CellType == "Snake")
+            {
+                responseMessage = "You were bitten by a snake!";
+            }
+            else
+            {
+                responseMessage = "You moved forward.";
+            }
+
+            var response = new PlayGameResponseModel
+            {
+                PlayerID = gamePlayer.PlayerId,
+                Color = gamePlayer.Color,
+                DiceRoll = diceRoll,
+                PreviousPosition = previousPosition,
+                NewPosition = newPosition,
+                Status = gamePlayer.PlayerStatus,
+                Message = responseMessage
+            };
+
+            return Result<PlayGameResponseModel>.Success(response, "Move processed successfully.");
+        }
+        catch (Exception ex)
+        {
+            return Result<PlayGameResponseModel>.SystemError("An error occurred while processing the move: " + ex.Message);
+        }
+    }
+
 
 }
