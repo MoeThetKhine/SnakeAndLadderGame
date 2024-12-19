@@ -1,10 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SnakeandLadderGame.Database.Models;
-using SnakeAndLadderGame.Domain.Models;
-using SnakeAndLadderGame.Domain.Models.PlayGame;
-using SnakeAndLadderGame.Domain.Models.StartGame;
-
-namespace SnakeAndLadderGame.Domain.Features.Game;
+﻿namespace SnakeAndLadderGame.Domain.Features.Game;
 
 public class GameService
 {
