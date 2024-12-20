@@ -20,9 +20,13 @@ namespace SnakeAndLadderGame.Domain.Features.Player
         {
             try
             {
+                #region Find Last Player
+
                 var lastPlayer = await _context.TblPlayers
                     .OrderByDescending(p => p.PlayerId)
                     .FirstOrDefaultAsync();
+
+                #endregion
 
                 int nextId = 1;
                 if (lastPlayer is not null && lastPlayer.PlayerId.StartsWith("p"))
