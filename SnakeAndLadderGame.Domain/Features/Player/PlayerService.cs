@@ -1,11 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SnakeAndLadderGame.Domain.Features.Player
+﻿namespace SnakeAndLadderGame.Domain.Features.Player
 {
     public class PlayerService
     {
