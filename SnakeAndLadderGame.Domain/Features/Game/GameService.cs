@@ -41,7 +41,7 @@ public class GameService
 
             #endregion
 
-            #region Create Game
+            #region Create GamePlayer
 
             for (int i = 0; i < request. PlayerIDs.Count; i++)
             {
@@ -155,7 +155,7 @@ public class GameService
 
                 if (cell is not null)
                 {
-                    if (cell.CellType == "Snake")
+                    if (cell.CellType == "Snake Mouth")
                     {
                         newPosition = cell.DestinationCell!.Value;
                     }
@@ -185,11 +185,11 @@ public class GameService
             {
                 responseMessage = "Congratulations! You won the game!";
             }
-            else if (previousPosition < newPosition && cell != null && cell.CellType == "Ladder")
+            else if (previousPosition < newPosition && cell is not null && cell.CellType == "Ladder")
             {
                 responseMessage = "You climbed a ladder!";
             }
-            else if (previousPosition > newPosition && cell != null && cell.CellType == "Snake")
+            else if (previousPosition > newPosition && cell is not null && cell.CellType == "Snake Mouth")
             {
                 responseMessage = "You were bitten by a snake!";
             }
