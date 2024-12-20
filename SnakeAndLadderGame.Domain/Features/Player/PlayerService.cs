@@ -28,6 +28,8 @@ namespace SnakeAndLadderGame.Domain.Features.Player
 
                 #endregion
 
+                #region Create Player Id
+
                 int nextId = 1;
                 if (lastPlayer is not null && lastPlayer.PlayerId.StartsWith("p"))
                 {
@@ -36,6 +38,8 @@ namespace SnakeAndLadderGame.Domain.Features.Player
                 }
 
                 string newPlayerId = $"p{nextId}";
+
+                #endregion
 
                 var newPlayer = new TblPlayer
                 {
