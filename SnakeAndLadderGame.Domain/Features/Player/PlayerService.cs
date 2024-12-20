@@ -55,6 +55,8 @@ namespace SnakeAndLadderGame.Domain.Features.Player
 
                 #endregion
 
+                #region Create New Player
+
                 var newPlayer = new TblPlayer
                 {
                     PlayerId = newPlayerId,
@@ -64,6 +66,8 @@ namespace SnakeAndLadderGame.Domain.Features.Player
 
                 await _context.TblPlayers.AddAsync(newPlayer);
                 await _context.SaveChangesAsync();
+
+                #endregion
 
                 return Result<PlayerRequestModel>.Success(request);
             }
