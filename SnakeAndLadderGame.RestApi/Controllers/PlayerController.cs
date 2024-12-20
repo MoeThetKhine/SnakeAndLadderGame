@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using SnakeAndLadderGame.Domain.Features.Player;
-using SnakeAndLadderGame.Domain.Models.Player;
-
-namespace SnakeAndLadderGame.RestApi.Controllers
+﻿namespace SnakeAndLadderGame.RestApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
