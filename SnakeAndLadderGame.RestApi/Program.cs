@@ -1,3 +1,5 @@
+using SnakeAndLadderGame.Domain.Features.Player;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
@@ -13,6 +15,7 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 }, ServiceLifetime.Transient, ServiceLifetime.Transient);
 
 builder.Services.AddScoped<GameService>();
+builder.Services.AddScoped<PlayerService>();
 
 #endregion
 
