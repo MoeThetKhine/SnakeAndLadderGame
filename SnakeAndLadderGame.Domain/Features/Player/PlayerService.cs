@@ -74,6 +74,8 @@ public class PlayerService
 
     #endregion
 
+    #region GetPlayerAsync
+
     public async Task<Result<List<PlayerModel>>> GetPlayerListAsync()
     {
         Result<List<PlayerModel>> response;
@@ -102,5 +104,7 @@ public class PlayerService
             return Result<List<PlayerModel>>.SystemError(ex.Message);
         }
     }
+
+    #endregion
 
 }
