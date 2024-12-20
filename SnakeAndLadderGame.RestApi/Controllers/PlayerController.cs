@@ -14,7 +14,7 @@ public class PlayerController : ControllerBase
     #region CreatePlayer
 
     [HttpPost("create")]
-    public async Task<IActionResult> CreatePlayer([FromBody] PlayerRequestModel request)
+    public async Task<IActionResult> CreatePlayerAsync([FromBody] PlayerRequestModel request)
     {
         var result = await _playerService.CreatePlayerAsync(request);
 
@@ -22,4 +22,11 @@ public class PlayerController : ControllerBase
     }
 
     #endregion
+
+    [HttpGet]
+    public async Task<IActionResult> GetPlayerAsync()
+    {
+        var lst = await _playerService.GetPlayerListAsync();
+        return Ok(lst);
+    }
 }
