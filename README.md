@@ -1,6 +1,6 @@
                                              Snake and Ladder Game
 
---------------------------------------------------- Start Game  ----------------------------------------------------------
+--------------------------------------------------- Start Game Flow ----------------------------------------------------------
 •	Players need to be created first.
 •	Once players are created, you can click "Start Game" to begin playing.
 Steps to Start the Game
