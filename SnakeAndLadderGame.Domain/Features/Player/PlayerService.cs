@@ -73,4 +73,34 @@ public class PlayerService
     }
 
     #endregion
+
+    public async Task<Result<List<PlayerModel>>> GetPlayerListAsync()
+    {
+        Result<List<PlayerModel>> response;
+
+        try
+        {
+            var player = _context.TblPlayers.AsNoTracking();
+            if(player is  null)
+            {
+                return Result<List<PlayerModel>>.ValidationError("No Player Found");
+            }
+
+            var lst = await player.Select(x => new PlayerModel()
+            {
+                PlayerId = x.PlayerId,
+                PlayerName=x.PlayerName,
+                Email=x.Email
+            }).ToListAsync();
+
+          var message =  Result<List<PlayerModel>>.Success(lst);
+            return message;
+
+        }
+        catch(Exception ex)
+        {
+            return Result<List<PlayerModel>>.SystemError(ex.Message);
+        }
+    }
+
 }
