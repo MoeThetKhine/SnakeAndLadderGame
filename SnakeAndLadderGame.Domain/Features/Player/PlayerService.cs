@@ -9,6 +9,8 @@ public class PlayerService
         _context = appDbContext;
     }
 
+    #region CreatePlayerAsync
+
     public async Task<Result<PlayerRequestModel>> CreatePlayerAsync(PlayerRequestModel request)
     {
         try
@@ -69,4 +71,6 @@ public class PlayerService
             return Result<PlayerRequestModel>.SystemError("An error occurred while creating the player: " + ex.Message);
         }
     }
+
+    #endregion
 }
