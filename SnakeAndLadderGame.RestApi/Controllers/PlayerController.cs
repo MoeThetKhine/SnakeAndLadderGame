@@ -23,10 +23,15 @@ public class PlayerController : ControllerBase
 
     #endregion
 
+    #region GetPlayerAsync
+
     [HttpGet]
     public async Task<IActionResult> GetPlayerAsync()
     {
         var lst = await _playerService.GetPlayerListAsync();
         return Ok(lst);
     }
+
+    #endregion
+
 }
