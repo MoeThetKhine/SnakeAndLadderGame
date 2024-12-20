@@ -11,13 +11,15 @@ public class PlayerController : ControllerBase
         _playerService = playerService;
     }
 
+    #region CreatePlayer
+
     [HttpPost("create")]
     public async Task<IActionResult> CreatePlayer([FromBody] PlayerRequestModel request)
     {
-       
-
         var result = await _playerService.CreatePlayerAsync(request);
 
         return Ok(result);
     }
+
+    #endregion
 }
