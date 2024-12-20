@@ -41,6 +41,7 @@ namespace SnakeAndLadderGame.Domain.Features.Player
 
                 #endregion
 
+                #region Validation for Player Name and Email
 
                 if (string.IsNullOrEmpty(request.PlayerName)) 
                 {
@@ -52,7 +53,7 @@ namespace SnakeAndLadderGame.Domain.Features.Player
                     return Result<PlayerRequestModel>.ValidationError("Email cannot be empty ");
                 }
 
-
+                #endregion
 
                 var newPlayer = new TblPlayer
                 {
